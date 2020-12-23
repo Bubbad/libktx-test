@@ -4,23 +4,27 @@ import com.badlogic.gdx.Game
 import com.badlogic.gdx.Screen
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import ktx.app.KtxGame
+import ktx.app.KtxScreen
 
-class DropGame : Game() {
+class DropGame : KtxGame<KtxScreen>() {
     lateinit var batch: SpriteBatch
     lateinit var font: BitmapFont
 
-    private lateinit var gameScreen: Screen
+    private lateinit var gameScreen: GameScreen
 
     override fun create() {
         batch = SpriteBatch()
         font = BitmapFont()
         font.data.setScale(1.5f)
         gameScreen = GameScreen(this)
-        this.setScreen(gameScreen)
+        addScreen(gameScreen)
+        setScreen<GameScreen>()
+        super.create()
     }
 
     override fun dispose() {
         batch.dispose()
-        gameScreen.dispose()
+        super.dispose()
     }
 }

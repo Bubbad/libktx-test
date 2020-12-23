@@ -15,9 +15,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.utils.TimeUtils
+import ktx.app.KtxScreen
 import kotlin.random.Random
 
-class GameScreen(dropGame: DropGame) : Screen {
+class GameScreen(dropGame: DropGame) : KtxScreen {
     private var lastDropTime: Long = 0
     private var raindrops: MutableList<Rectangle>
     private val bucket: Rectangle
@@ -73,9 +74,9 @@ class GameScreen(dropGame: DropGame) : Screen {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            bucket.x -= 200 * Gdx.graphics.deltaTime
+            bucket.x -= 500 * Gdx.graphics.deltaTime
         } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            bucket.x += 200 * Gdx.graphics.deltaTime
+            bucket.x += 500 * Gdx.graphics.deltaTime
         }
 
         if (bucket.x < 0) {
