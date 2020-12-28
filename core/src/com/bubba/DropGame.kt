@@ -1,16 +1,18 @@
 package com.bubba
 
+import com.badlogic.ashley.core.Engine
+import com.badlogic.ashley.core.PooledEngine
 import com.badlogic.gdx.assets.AssetManager
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
-import ktx.assets.load
 
 class DropGame : KtxGame<KtxScreen>() {
     lateinit var batch: SpriteBatch
     lateinit var font: BitmapFont
     val assets = AssetManager()
+    val engine = PooledEngine()
 
     private lateinit var loadingScreen: LoadingScreen
     private lateinit var gameScreen: GameScreen
